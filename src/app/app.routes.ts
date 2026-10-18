@@ -5,6 +5,7 @@ import { Register } from './core/auth/register/register';
 import { ForgetPassword } from './core/auth/forget-password/forget-password';
 import { ResetPassword } from './core/auth/reset-password/reset-password';
 import { ResetSuccess } from './core/auth/reset-success/reset-success';
+import { CheckEmail } from './core/auth/check-email/check-email';
 
 export const routes: Routes = [
     {path:`` ,component:Register},
@@ -12,5 +13,5 @@ export const routes: Routes = [
     {path:`forget-password` , component:ForgetPassword},
     {path:`reset-password` , component:ResetPassword},
     {path:`forget-success` , component:ResetSuccess},
-    {path:`check-email` , component:ResetSuccess},
+    {path:`check-email` , component:CheckEmail},
   ];
