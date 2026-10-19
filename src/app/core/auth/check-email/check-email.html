@@ -1,0 +1,40 @@
+<main class="page">
+  <section class="card">
+    <img class="logo" src="/images/logo without background.png" alt="Nevora" />
+
+    <form class="content" (ngSubmit)="onSubmit()">
+      <h1 class="title">Check your email</h1>
+
+      <p class="hint">
+        Input the code that was sent to the<br />
+        moh.........&#64;gmail.com
+      </p>
+
+      <div class="otp" (paste)="onPaste($event)">
+        <input
+          *ngFor="let digit of digits; let i = index"
+          class="otp__box"
+          [class.otp__box--error]="errorMessage"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+          autocomplete="one-time-code"
+          [attr.aria-label]="'Digit ' + (i + 1)"
+          [value]="digit"
+          (input)="onDigitInput($event, i)"
+          (keydown)="onDigitKeydown($event, i)"
+          (focus)="$any($event.target).select()"
+        />
+      </div>
+
+      <p class="message message--error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="message message--success" *ngIf="successMessage">{{ successMessage }}</p>
+
+      <button class="btn" type="submit">Next</button>
+
+      <p class="resend">
+        Didn’t get any code?<button class="resend__link" type="button" (click)="resendCode()">Click to resend</button>
+      </p>
+    </form>
+  </section>
+</main>

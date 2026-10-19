@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.card {
+  min-height: 100vh;
+  padding: 32px 40px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.card .logo {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+.content {
+  max-width: 400px;
+  margin: 24px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  color: #1b365d;
+  text-align: center;
+}
+
+.hint {
+  margin: 44px 0 0;
+  width: 100%;
+  padding-left: 80px;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #7d7d7d;
+  box-sizing: border-box;
+}
+
+.otp {
+  margin-top: 38px;
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+}
+
+.otp__box {
+  width: 62px;
+  height: 56px;
+  border: 1px solid #1b365d;
+  border-radius: 3px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 38px;
+  line-height: 1;
+  text-align: center;
+  color: #1b365d;
+  outline: none;
+  caret-color: #ac7f5e;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.otp__box:focus {
+  border-color: #ac7f5e;
+  box-shadow: 0 0 0 3px rgba(172, 127, 94, 0.25);
+}
+
+.otp__box--error {
+  border-color: #e63946;
+}
+
+.message {
+  margin: 12px 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+.message--error { color: #e63946; }
+.message--success { color: #2e7d4f; }
+
+.btn {
+  margin-top: 48px;
+  width: 100%;
+  height: 46px;
+  border: 1px solid #9c7152;
+  border-radius: 4px;
+  background: #ac7f5e;
+  font-family: inherit;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn:hover { background: #96694a; }
+
+.btn:focus-visible {
+  outline: 3px solid rgba(27, 54, 93, 0.4);
+  outline-offset: 2px;
+}
+
+.resend {
+  margin: 24px 0 0;
+  font-size: 16px;
+  color: #1b365d;
+}
+
+.resend__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: #e63946;
+  cursor: pointer;
+}
+
+.resend__link:focus-visible {
+  outline: 2px solid #e63946;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .card { padding: 20px 16px; }
+  .hint { padding-left: 0; text-align: center; }
+  .otp { gap: 14px; }
+  .otp__box { width: 56px; height: 52px; font-size: 32px; }
+}
