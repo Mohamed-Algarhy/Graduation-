@@ -1,65 +1,40 @@
-<div class="check-page">
-  <a class="logo" routerLink="/login" aria-label="Nevora Home">
-  <img
-    src="/images/logo without background.png"
-    alt="Nevora Logo"
-  />
-</a>
-  <main class="check-card">
-    <div class="mail-icon" aria-hidden="true">✉</div>
+<main class="page">
+  <section class="card">
+    <img class="logo" src="/images/logo without background.png" alt="Nevora" />
 
-    <h1>Check Your Email</h1>
+    <form class="content" (ngSubmit)="onSubmit()">
+      <h1 class="title">Check your email</h1>
 
-    <p class="description">
-      We sent a verification code to your email address.
-      Please enter the 4-digit code below to continue.
-    </p>
+      <p class="hint">
+        Input the code that was sent to the<br />
+        moh.........&#64;gmail.com
+      </p>
 
-    <form (ngSubmit)="onSubmit()" #codeForm="ngForm">
-      <label for="code-0">Verification Code</label>
-
-      <div class="code-inputs">
+      <div class="otp" (paste)="onPaste($event)">
         <input
           *ngFor="let digit of digits; let i = index"
-          [id]="'code-' + i"
-          [name]="'digit-' + i"
+          class="otp__box"
+          [class.otp__box--error]="errorMessage"
           type="text"
           inputmode="numeric"
-          autocomplete="one-time-code"
           maxlength="1"
-          pattern="[0-9]"
-          required
-          [(ngModel)]="digits[i]"
+          autocomplete="one-time-code"
+          [attr.aria-label]="'Digit ' + (i + 1)"
+          [value]="digit"
           (input)="onDigitInput($event, i)"
           (keydown)="onDigitKeydown($event, i)"
-          (paste)="onPaste($event)"
-          [attr.aria-label]="'Digit ' + (i + 1)"
+          (focus)="$any($event.target).select()"
         />
       </div>
 
-      <p class="error" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </p>
+      <p class="message message--error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="message message--success" *ngIf="successMessage">{{ successMessage }}</p>
 
-      <p class="success" *ngIf="successMessage">
-        {{ successMessage }}
-      </p>
+      <button class="btn" type="submit">Next</button>
 
-      <button class="next-btn" type="submit" [disabled]="!isCodeComplete">
-        Next
-      </button>
+      <p class="resend">
+        Didn’t get any code?<button class="resend__link" type="button" (click)="resendCode()">Click to resend</button>
+      </p>
     </form>
-
-    <p class="resend-text">
-      Didn't receive the code?
-      <button type="button" class="resend-link" (click)="resendCode()">
-        Click to resend
-      </button>
-    </p>
-
-    <a class="back-link" routerLink="/login">
-      <span aria-hidden="true">←</span>
-      Back to Login
-    </a>
-  </main>
-</div>
+  </section>
+</main>

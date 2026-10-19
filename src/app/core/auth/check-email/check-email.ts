@@ -1,13 +1,11 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-check-email',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './check-email.html',
   styleUrl: './check-email.css',
 })
@@ -17,7 +15,7 @@ export class CheckEmail {
   successMessage = '';
 
   get isCodeComplete(): boolean {
-    return this.digits.every(digit => /^[0-9]$/.test(digit));
+    return this.digits.every((digit) => /^[0-9]$/.test(digit));
   }
 
   onDigitInput(event: Event, index: number): void {
@@ -29,43 +27,25 @@ export class CheckEmail {
 
     this.errorMessage = '';
     this.successMessage = '';
-
-    if (value && index < this.digits.length - 1) {
-      input.parentElement
-        ?.querySelectorAll('input')
-        [index + 1]?.focus();
-    }
   }
 
   onDigitKeydown(event: KeyboardEvent, index: number): void {
     const input = event.target as HTMLInputElement;
 
-    if (
-      event.key === 'Backspace' &&
-      !input.value &&
-      index > 0
-    ) {
-      input.parentElement
-        ?.querySelectorAll('input')
-        [index - 1]?.focus();
+    if (event.key === 'Backspace' && !input.value && index > 0) {
+      this.focusInput(input, index - 1);
     }
   }
 
   onPaste(event: ClipboardEvent): void {
     event.preventDefault();
 
-    const pastedText =
-      event.clipboardData?.getData('text') ?? '';
-
-    const numbers = pastedText
+    const numbers = (event.clipboardData?.getData('text') ?? '')
       .replace(/\D/g, '')
       .slice(0, 4)
       .split('');
 
-    this.digits = Array.from(
-      { length: 4 },
-      (_, index) => numbers[index] ?? ''
-    );
+    this.digits = Array.from({ length: 4 }, (_, i) => numbers[i] ?? '');
 
     this.errorMessage = '';
     this.successMessage = '';
@@ -80,11 +60,17 @@ export class CheckEmail {
 
     this.errorMessage = '';
     this.successMessage = 'Code entered successfully.';
+    // TODO: نادي على الـ API هنا بالكود: this.digits.join('')
   }
 
   resendCode(): void {
     this.digits = ['', '', '', ''];
     this.errorMessage = '';
-    this.successMessage = 'Please request a new code from the server.';
+    this.successMessage = 'A new code has been requested.';
+    // TODO: نادي على الـ API بتاع إعادة الإرسال
+  }
+
+  private focusInput(current: HTMLInputElement, index: number): void {
+    current.parentElement?.querySelectorAll('input')[index]?.focus();
   }
 }
