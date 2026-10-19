@@ -3,11 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "3715624d-0d20-4308-9d3a-5ad1cf4e3428"
+    "analytics": "05089ed3-a74a-4fd0-a188-44409e1bf320"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "app": {
+    "nevora-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,8 +17,6 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -27,7 +25,8 @@
                 "input": "public"
               }
             ],
-             "server": "src/main.server.ts",
+            "styles": ["src/styles.css"],
+            "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
               "allowedHosts": []
@@ -64,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app:build:production"
+              "buildTarget": "nevora-frontend:build:production"
             },
             "development": {
-              "buildTarget": "app:build:development"
+              "buildTarget": "nevora-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
