@@ -12,6 +12,6 @@ export const routes: Routes = [
     {path:`login` , component:Login},
     {path:`forget-password` , component:ForgetPassword},
     {path:`reset-password` , component:ResetPassword},
-    {path:`forget-success` , component:ResetSuccess},
+    {path:`reset-success` , component:ResetSuccess},
     {path:`check-email` , component:CheckEmail},
   ];

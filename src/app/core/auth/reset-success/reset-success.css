@@ -1,4 +1,4 @@
-.pass-sucsse {
+.pass-success {
     background-color: #fff;
     position: relative;
     padding-top: 80px;
@@ -17,7 +17,7 @@
     display: block;
 }
 
-.pass-sucsse::before {
+.pass-success::before {
     content: "✓";
     display: flex;
     align-items: center;
@@ -32,14 +32,14 @@
     margin: 0 auto 18px;
 }
 
-.pass-sucsse h1 {
+.pass-success h1 {
     text-align: center;
     color: #1B3A63;
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 22px;
 }
-.pass-sucsse p {
+.pass-success p {
     max-width: 374px;
     margin: 0 auto;
     color: #999;
@@ -79,15 +79,15 @@
         width: 55px;
     }
 
-    .pass-sucsse {
+    .pass-success {
         padding-top: 90px;
     }
 
-    .pass-sucsse h1 {
+    .pass-success h1 {
         font-size: 26px;
     }
 
-    .pass-sucsse p {
+    .pass-success p {
         width: 85%;
         font-size: 14px;
     }
