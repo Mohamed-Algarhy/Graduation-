@@ -1,4 +1,50 @@
-<p>login works!</p>
-<p>login works!</p>
-<p>login works!</p>
-<p>  hi ali </p>
+ <main class="login-page">
+  <img class="brand-logo" src="/logo.jpeg" alt="Nevora logo" />
+
+  <section class="login-layout">
+    <form class="login-form" (submit)="onSignIn($event, emailInput.value, passwordInput.value)">
+      <h1>WELCOME BACK</h1>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input #emailInput id="email" type="email" placeholder="Enter your email" autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+
+        <div class="password-field">
+          <input #passwordInput id="password" [type]="showPassword ? 'text' : 'password'" placeholder="Enter your password"
+            autocomplete="current-password" />
+
+          <button class="password-toggle" type="button" (click)="togglePasswordVisibility()"
+            aria-label="Show or hide password">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-option">
+          <input type="checkbox" />
+          <span>Remember me</span>
+        </label>
+
+        <a href="#">Forgot password</a>
+      </div>
+
+      <button class="sign-in-button" type="submit">Sign in</button>
+
+      <p class="sign-up-text">
+        Don’t have an account? <a href="#">Sign up</a>
+      </p>
+    </form>
+
+    <div class="house-image">
+      <img src="/house.jpeg" alt="Modern Nevora house" />
+    </div>
+  </section>
+</main> >
