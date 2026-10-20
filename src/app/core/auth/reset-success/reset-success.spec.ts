@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { ResetSuccess } from './reset-success';
 
@@ -9,6 +10,7 @@ describe('ResetSuccess', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ResetSuccess],
+      providers: [provideRouter([])], // مطلوب لأن الصفحة بتستخدم الـ Router / routerLink
     }).compileComponents();
 
     fixture = TestBed.createComponent(ResetSuccess);
@@ -18,5 +20,11 @@ describe('ResetSuccess', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show the Login button', () => {
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('.submit');
+    expect(button).toBeTruthy();
+    expect(button.textContent?.trim()).toBe('Login');
   });
 });

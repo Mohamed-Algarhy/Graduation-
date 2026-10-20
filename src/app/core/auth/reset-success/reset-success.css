@@ -1,102 +1,105 @@
-.pass-success {
-    background-color: #fff;
-    position: relative;
-    padding-top: 80px;
+/* الخلفية بيضا على الشاشة كلها */
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #fff;
 }
 
+.pass-success {
+  position: relative;
+  padding-top: 80px;
+  background-color: #fff;
+}
 
 .logo {
-    position: absolute;
-    top: 28px;
-    left: 30px;
+  position: absolute;
+  top: 28px;
+  left: 30px;
 }
 
 .logo-nevora {
-    width: 70px;
-    height: auto;
-    display: block;
+  display: block;
+  width: 70px;
+  height: auto;
 }
 
 .pass-success::before {
-    content: "✓";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 54px;
-    background-color: #AC7F5E;
-    color: #333;
-    font-size: 46px;
-    font-weight: bold;
-    border-radius: 50%;
-    margin: 0 auto 18px;
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 54px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background-color: #ac7f5e;
+  font-size: 46px;
+  font-weight: bold;
+  color: #1b365d;
 }
 
 .pass-success h1 {
-    text-align: center;
-    color: #1B3A63;
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 22px;
-}
-.pass-success p {
-    max-width: 374px;
-    margin: 0 auto;
-    color: #999;
-    font-size: 15px;
-    line-height: 19px;
-    text-align: left;
+  margin-bottom: 22px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #1b365d;
+  text-align: center;
 }
 
+.pass-success p {
+  max-width: 374px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 19px;
+  color: #7d7d7d;
+  text-align: left;
+}
 
 .submit {
-    display: block;
-    width: 270px;
-    height: 37px;
-    margin: 68px auto 0;
-    background-color: #AC7F5E;
-    color: white;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.15s;
-
+  display: block;
+  width: 270px;
+  height: 37px;
+  margin: 68px auto 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #ac7f5e;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .submit:hover {
-  
-    transition: background-color 0.3s ease;
-    transform: scale(1.01);
-        background: #96694a;
+  background-color: #96694a;
+  transform: scale(1.01);
 }
 
 /* Responsive */
 @media (max-width: 480px) {
-    .logo {
-        top: 20px;
-        left: 20px;
-    }
+  .logo {
+    top: 20px;
+    left: 20px;
+  }
 
-    .logo-nevora {
-        width: 55px;
-    }
+  .logo-nevora {
+    width: 55px;
+  }
 
-    .pass-success {
-        padding-top: 90px;
-    }
+  .pass-success {
+    padding-top: 90px;
+  }
 
-    .pass-success h1 {
-        font-size: 26px;
-    }
+  .pass-success h1 {
+    font-size: 26px;
+  }
 
-    .pass-success p {
-        width: 85%;
-        font-size: 14px;
-    }
+  .pass-success p {
+    width: 85%;
+    font-size: 14px;
+  }
 
-    .submit {
-        width: 80%;
-        margin-top: 55px;
-    }
+  .submit {
+    width: 80%;
+    margin-top: 55px;
+  }
 }

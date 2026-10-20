@@ -1,23 +1,22 @@
 <div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
   <div class="row w-100 justify-content-center align-items-center g-5">
     <div class="col-12 col-md-6">
-      <!-- (Logo)   -->
+      <!-- Logo -->
       <div class="mb-4 ">
         <img
           src="/images/logo without background.png"
           alt="Nevora Logo"
-          style="height: 46px; width: auto"
-          class="img-fluid"
+          class="logo img-fluid"
         />
       </div>
 
-      <h2 class="fw-bold mb-4 ">create A new account</h2>
+      <h2 class="fw-bold mb-4">Create A new account</h2>
 
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <!-- First Name ========================================================================================-->
+        <!-- First Name & Last Name -->
         <div class="row mb-3">
           <div class="col-6">
-            <label class="form-label text-muted small">First Name</label>
+            <label class="form-label small">First Name</label>
             <input
               type="text"
               formControlName="firstName"
@@ -25,29 +24,18 @@
               class="form-control"
             />
             <div
-              *ngIf="
-                registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid
-              "
+              *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid"
               class="text-danger small mt-1"
             >
-              <div *ngIf="registerForm.get('firstName')?.errors?.['pattern']">
-                Invalid Name Format.
-              </div>
-              <div *ngIf="registerForm.get('firstName')?.errors?.['required']">
-                First name is required.
-              </div>
-              <div *ngIf="registerForm.get('firstName')?.errors?.['minlength']">
-                Min length is 3 characters.
-              </div>
-              <div *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">
-                Max length is 20 characters.
-              </div>
+              <div *ngIf="registerForm.get('firstName')?.errors?.['pattern']">Invalid Name Format.</div>
+              <div *ngIf="registerForm.get('firstName')?.errors?.['required']">First name is required.</div>
+              <div *ngIf="registerForm.get('firstName')?.errors?.['minlength']">Min length is 3 characters.</div>
+              <div *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Max length is 20 characters.</div>
             </div>
           </div>
-          <!-- Last Name ========================================================================================-->
 
           <div class="col-6">
-            <label class="form-label text-muted small">Last Name</label>
+            <label class="form-label small">Last Name</label>
             <input
               type="text"
               formControlName="lastName"
@@ -58,22 +46,16 @@
               *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid"
               class="text-danger small mt-1"
             >
-              <div *ngIf="registerForm.get('lastName')?.errors?.['required']">
-                Last name is required.
-              </div>
-              <div *ngIf="registerForm.get('lastName')?.errors?.['minlength']">
-                Min length is 3 characters.
-              </div>
-              <div *ngIf="registerForm.get('lastName')?.errors?.['maxlength']">
-                Max length is 20 characters.
-              </div>
+              <div *ngIf="registerForm.get('lastName')?.errors?.['required']">Last name is required.</div>
+              <div *ngIf="registerForm.get('lastName')?.errors?.['minlength']">Min length is 3 characters.</div>
+              <div *ngIf="registerForm.get('lastName')?.errors?.['maxlength']">Max length is 20 characters.</div>
             </div>
           </div>
         </div>
 
-        <!-- Email ========================================================================================-->
+        <!-- Email -->
         <div class="mb-3">
-          <label class="form-label text-muted small">Email</label>
+          <label class="form-label small">Email</label>
           <input
             type="email"
             formControlName="email"
@@ -85,15 +67,13 @@
             class="text-danger small mt-1"
           >
             <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</div>
-            <div *ngIf="registerForm.get('email')?.errors?.['email']">
-              Please enter a valid email.
-            </div>
+            <div *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
           </div>
         </div>
 
-        <!-- Number ========================================================================================-->
+        <!-- Number -->
         <div class="mb-3">
-          <label class="form-label text-muted small">Number</label>
+          <label class="form-label small">Number</label>
           <input
             type="text"
             formControlName="number"
@@ -104,18 +84,14 @@
             *ngIf="registerForm.get('number')?.touched && registerForm.get('number')?.invalid"
             class="text-danger small mt-1"
           >
-            <div *ngIf="registerForm.get('number')?.errors?.['required']">
-              Phone number is required.
-            </div>
-            <div *ngIf="registerForm.get('number')?.errors?.['pattern']">
-              Please enter a valid Number.
-            </div>
+            <div *ngIf="registerForm.get('number')?.errors?.['required']">Phone number is required.</div>
+            <div *ngIf="registerForm.get('number')?.errors?.['pattern']">Please enter a valid Number.</div>
           </div>
         </div>
 
-        <!-- Password ======================================================================================== -->
+        <!-- Password -->
         <div class="mb-3">
-          <label class="form-label text-muted small">Password</label>
+          <label class="form-label small">Password</label>
           <input
             type="password"
             formControlName="password"
@@ -126,18 +102,14 @@
             *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid"
             class="text-danger small mt-1"
           >
-            <div *ngIf="registerForm.get('password')?.errors?.['required']">
-              Password is required.
-            </div>
-            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">
-              Password must be at least 6 characters.
-            </div>
+            <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</div>
+            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</div>
           </div>
         </div>
 
-        <!-- Confirm Password ========================================================================================-->
+        <!-- Confirm Password -->
         <div class="mb-3">
-          <label class="form-label text-muted small">Confirm Password</label>
+          <label class="form-label small">Confirm Password</label>
           <input
             type="password"
             formControlName="confirmPassword"
@@ -148,22 +120,12 @@
             *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid"
             class="text-danger small mt-1"
           >
-            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
-              RePassword is required.
-            </div>
-            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['mismatch']">
-              Passwords do not match
-            </div>
+            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">RePassword is required.</div>
+            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['mismatch']">Passwords do not match.</div>
           </div>
-          <!-- <div
-            *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('mismatch')"
-            class="text-danger small mt-1"
-          >
-            <div>Passwords do not match.</div>
-          </div> -->
         </div>
 
-        <!-- Remember me ========================================================================================-->
+        <!-- Remember me -->
         <div class="mb-3 form-check">
           <input
             type="checkbox"
@@ -171,29 +133,26 @@
             class="form-check-input"
             id="remember"
           />
-          <label class="form-check-label text-muted small" for="remember">Remember me</label>
+          <label class="form-check-label small" for="remember">Remember me</label>
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn w-100 text-white py-2" style="background-color: #b08968">
-          Sign up
-        </button>
+        <button type="submit" class="btn signup-btn w-100 py-2">Sign up</button>
 
-        <p class="text-center text-muted small mt-3">
+        <p class="login-text text-center small mt-3">
           Already have an account?
-          <a routerLink="login" class="text-danger text-decoration-none">Login</a>
+          <a routerLink="/login" class="login-link text-decoration-none">Login</a>
         </p>
       </form>
     </div>
 
-    <!-- Image ========================================================================================-->
+    <!-- Image -->
     <div class="col-12 col-md-6 d-none d-md-flex justify-content-center align-items-center">
       <div class="side-image w-100 d-flex align-items-center justify-content-center">
         <img
-          src="/images/WhatsApp Image 2026-10-05 at 12.16.06 AM.jpeg"
+          src="/images/house witout.png"
           alt="Nevora Project Villa"
-          class="img-fluid rounded-4 shadow-sm"
-          style="max-height: 480px; object-fit: cover"
+          class="img-fluid"
         />
       </div>
     </div>
