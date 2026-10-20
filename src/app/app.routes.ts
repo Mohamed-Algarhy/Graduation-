@@ -9,7 +9,7 @@ import { register } from 'module';
 
 export const routes: Routes = [
   { path: '', component: Register }, // أضف هذا السطر لفتح اللوجن تلقائياً
-  // { path: 'login', component: Login },
+  { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'forget-password', component: ForgetPassword },
   { path: 'reset-password', component: ResetPassword },
