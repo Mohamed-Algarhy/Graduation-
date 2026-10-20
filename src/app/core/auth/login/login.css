@@ -1,19 +1,23 @@
 :host {
   display: block;
+  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 .login-page {
   min-height: 100vh;
   position: relative;
   padding: 24px 5vw;
+  background: #fff;
+  box-sizing: border-box;
 }
 
-.brand-logo {
+.login-page .brand-logo {
   position: absolute;
   top: 0;
   left: 5vw;
   width: 150px;
   height: auto;
+  max-width: 150px;
   object-fit: contain;
 }
 
@@ -33,9 +37,10 @@
 }
 
 .login-form h1 {
-  color: #203b5a;
-  font-size: clamp(32px, 3vw, 44px);
   margin: 0 0 34px;
+  font-size: clamp(32px, 3vw, 44px);
+  font-weight: 500;
+  color: #1b365d;
   text-align: center;
 }
 
@@ -46,25 +51,66 @@
 .form-group label {
   display: block;
   margin-bottom: 10px;
-  color: #203b5a;
+  color: #1b365d;
 }
 
 .form-group input {
   width: 100%;
   height: 58px;
   padding: 0 18px;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #8a8a8a;
   border-radius: 15px;
+  background: #fff;
   font: inherit;
+  color: #1b365d;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .form-group input:focus {
-  outline: 2px solid #b47f5f;
-  border-color: #b47f5f;
+  outline: none;
+  border-color: #ac7f5e;
+  box-shadow: 0 0 0 3px rgba(172, 127, 94, 0.25);
 }
 
 .form-group input::placeholder {
-  color: #999;
+  color: #9a9a9a;
+}
+
+/* حقل الباسورد وأيقونة العين */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 54px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #1b365d;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.password-toggle:hover svg {
+  stroke: #ac7f5e;
 }
 
 .form-options {
@@ -72,19 +118,27 @@
   justify-content: space-between;
   align-items: center;
   margin: 26px 0 34px;
-  color: #203b5a;
+  color: #1b365d;
 }
 
 .remember-option {
   display: flex;
   align-items: center;
   gap: 9px;
+  cursor: pointer;
 }
 
-.form-options a,
-.sign-up-text a {
-  color: #203b5a;
+.remember-option input {
+  accent-color: #ac7f5e;
+}
+
+.form-options a {
+  color: #1b365d;
   text-decoration: none;
+}
+
+.form-options a:hover {
+  text-decoration: underline;
 }
 
 .sign-in-button {
@@ -92,32 +146,44 @@
   height: 60px;
   border: 0;
   border-radius: 15px;
-  background: #b47f5f;
-  color: white;
+  background: #ac7f5e;
   font: inherit;
+  color: #fff;
   cursor: pointer;
-  box-shadow: 0 8px 16px #0000001a;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: background 0.15s;
 }
 
 .sign-in-button:hover {
-  background: #a66f50;
+  background: #96694a;
+}
+
+.sign-in-button:focus-visible {
+  outline: 3px solid rgba(27, 54, 93, 0.4);
+  outline-offset: 2px;
 }
 
 .sign-up-text {
   margin-top: 24px;
   text-align: center;
-  color: #203b5a;
+  color: #1b365d;
 }
 
 .sign-up-text a {
-  color: #c74d55;
   font-weight: bold;
+  color: #e63946;
+  text-decoration: none;
+}
+
+.sign-up-text a:hover {
+  text-decoration: underline;
 }
 
 .house-image {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: #f7f7f7;
+  background: #fff;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,28 +191,23 @@
 
 .house-image img {
   width: 100%;
-  transform: scale(1.28);
   height: 100%;
   object-fit: contain;
+  transform: scale(1.28);
 }
 
 @media (max-width: 900px) {
-  .brand-logo {
+  .login-page .brand-logo {
     top: 18px;
     left: 22px;
     width: 125px;
   }
 
   .login-layout {
-    min-height: calc(100vh - 108px);
     min-height: auto;
     margin-top: 125px;
     grid-template-columns: 1fr;
     gap: 42px;
-  }
-
-  .login-form {
-    width: min(100%, 460px);
   }
 
   .house-image {
@@ -163,11 +224,4 @@
   .form-options {
     font-size: 14px;
   }
-
-  .password-field {
-    position: relative;
-  }
-
-
-
 }
