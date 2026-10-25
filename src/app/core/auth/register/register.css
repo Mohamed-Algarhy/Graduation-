@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :host {
   display: block;
   min-height: 100vh;
@@ -96,3 +97,10 @@ h2 {
   max-height: 600px;
   object-fit: contain;
 }
+=======
+
+.side-image img
+{
+    width: 100%;
+ }
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d

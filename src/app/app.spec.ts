@@ -18,6 +18,10 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
+<<<<<<< HEAD
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, nevora-frontend');
+=======
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, app');
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
   });
 });

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -25,3 +26,14 @@ togglePasswordVisibility() {
     alert('The form is ready. Login connection comes later.');
   }
 }
+=======
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-login',
+  imports: [],
+  templateUrl: './login.html',
+  styleUrl: './login.css',
+})
+export class Login {}
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d

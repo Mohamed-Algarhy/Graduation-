@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+<<<<<<< HEAD
 import { provideRouter } from '@angular/router';
+=======
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
 
 import { ResetSuccess } from './reset-success';
 
@@ -10,7 +13,10 @@ describe('ResetSuccess', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ResetSuccess],
+<<<<<<< HEAD
       providers: [provideRouter([])], // مطلوب لأن الصفحة بتستخدم الـ Router / routerLink
+=======
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
     }).compileComponents();
 
     fixture = TestBed.createComponent(ResetSuccess);
@@ -21,6 +27,7 @@ describe('ResetSuccess', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+<<<<<<< HEAD
 
   it('should show the Login button', () => {
     const button: HTMLButtonElement = fixture.nativeElement.querySelector('.submit');
@@ -28,3 +35,6 @@ describe('ResetSuccess', () => {
     expect(button.textContent?.trim()).toBe('Login');
   });
 });
+=======
+});
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d

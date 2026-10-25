@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -95,3 +96,13 @@ export class ResetPassword {
     this.router.navigate(['/reset-success']);
   }
 }
+=======
+
+@Component({
+  selector: 'app-reset-password',
+  imports: [],
+  templateUrl: './reset-password.html',
+  styleUrl: './reset-password.css',
+})
+export class ResetPassword {}
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d

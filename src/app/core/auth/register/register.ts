@@ -9,7 +9,10 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+<<<<<<< HEAD
 import { validate } from '@angular/forms/signals';
+=======
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
 
 @Component({
   selector: 'app-register',
@@ -19,6 +22,7 @@ import { validate } from '@angular/forms/signals';
   styleUrl: './register.css',
 })
 export class Register {
+<<<<<<< HEAD
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
   registerForm = new FormGroup(
@@ -45,6 +49,16 @@ export class Register {
       // ===========================================
       confirmPassword: new FormControl('', [Validators.required]),
       // ++++++++++=================================
+=======
+  registerForm = new FormGroup(
+    {
+      firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      number: new FormControl('', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      confirmPassword: new FormControl('', [Validators.required]),
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
       rememberMe: new FormControl(false),
     },
     { validators: this.passwordMatchValidator },
@@ -53,6 +67,7 @@ export class Register {
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password')?.value;
     const confirmPassword = control.get('confirmPassword')?.value;
+<<<<<<< HEAD
     // return password === confirmPassword ? null : { mismatch: true };
     if (password != confirmPassword) {
       control.get(`confirmPassword`)?.setErrors({ mismatch: true });
@@ -61,6 +76,9 @@ export class Register {
     {
       return null
     }
+=======
+    return password === confirmPassword ? null : { mismatch: true };
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
   }
 
   onSubmit() {

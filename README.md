@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # NevoraFrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.27.
+=======
+# App
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.24.
+>>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
 
 ## Development server
 
