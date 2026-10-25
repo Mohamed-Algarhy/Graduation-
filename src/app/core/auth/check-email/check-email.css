@@ -1,6 +1,5 @@
 :host {
   display: block;
-<<<<<<< HEAD
   font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
@@ -139,7 +138,6 @@
   .hint { padding-left: 0; text-align: center; }
   .otp { gap: 14px; }
   .otp__box { width: 56px; height: 52px; font-size: 32px; }
-=======
   min-height: 100vh;
   font-family: Arial, sans-serif;
   color: #243d5b;
@@ -328,5 +326,4 @@ form label {
   width: 100%;
   height: auto;
   object-fit: contain;
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
 }
