@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './reset-password.html',
   styleUrl: './reset-password.css',
@@ -19,13 +19,14 @@ export class ResetPassword {
   showConfirm = false;
 
   message = '';
+
   passwordInvalid = false;
   confirmInvalid = false;
+
   ruleLengthMet = false;
   ruleCharsMet = false;
 
   constructor(private router: Router) {}
-
 
   checkRules(value: string) {
     return {
@@ -35,53 +36,64 @@ export class ResetPassword {
     };
   }
 
-  setMessage(text: string) {
+  setMessage(text: string): void {
     this.message = text;
   }
 
+  onPasswordInput(): void {
+    const password = this.resetForm.controls.password.value;
+    const rules = this.checkRules(password);
 
-  onPasswordInput() {
-    const r = this.checkRules(this.resetForm.controls.password.value);
-    this.ruleLengthMet = r.length;
-    this.ruleCharsMet = r.number && r.symbol;
+    this.ruleLengthMet = rules.length;
+    this.ruleCharsMet = rules.number && rules.symbol;
+
     this.passwordInvalid = false;
+    this.confirmInvalid = false;
+
     this.setMessage('');
   }
 
-  onConfirmInput() {
+  onConfirmInput(): void {
     this.confirmInvalid = false;
     this.setMessage('');
   }
 
-  /* ---------- الضغط على Reset Password ---------- */
-  onSubmit() {
+  onSubmit(): void {
     const password = this.resetForm.controls.password.value;
     const confirm = this.resetForm.controls.confirm.value;
 
-  
+    this.passwordInvalid = false;
+    this.confirmInvalid = false;
+    this.setMessage('');
+
     if (password === '' || confirm === '') {
+      if (password === '') {
+        this.passwordInvalid = true;
+      }
+
+      if (confirm === '') {
+        this.confirmInvalid = true;
+      }
+
       this.setMessage('Please fill in both password fields.');
       return;
     }
 
-    const r = this.checkRules(password);
+    const rules = this.checkRules(password);
 
-  
-    if (!r.length) {
+    if (!rules.length) {
       this.passwordInvalid = true;
       this.setMessage('Password must be at least 8 characters.');
       return;
     }
 
-
-    if (!r.number) {
+    if (!rules.number) {
       this.passwordInvalid = true;
       this.setMessage('Password must contain at least one number.');
       return;
     }
 
-    
-    if (!r.symbol) {
+    if (!rules.symbol) {
       this.passwordInvalid = true;
       this.setMessage('Password must contain at least one symbol (e.g. @ # $ !).');
       return;
@@ -93,16 +105,7 @@ export class ResetPassword {
       return;
     }
 
+    // الانتقال لصفحة النجاح بعد اجتياز التحقق.
     this.router.navigate(['/reset-success']);
   }
 }
-=======
-
-@Component({
-  selector: 'app-reset-password',
-  imports: [],
-  templateUrl: './reset-password.html',
-  styleUrl: './reset-password.css',
-})
-export class ResetPassword {}
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d

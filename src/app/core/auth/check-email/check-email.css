@@ -138,6 +138,7 @@
   .hint { padding-left: 0; text-align: center; }
   .otp { gap: 14px; }
   .otp__box { width: 56px; height: 52px; font-size: 32px; }
+<<<<<<< HEAD
   min-height: 100vh;
   font-family: Arial, sans-serif;
   color: #243d5b;
@@ -326,4 +327,6 @@ form label {
   width: 100%;
   height: auto;
   object-fit: contain;
+=======
+>>>>>>> bdfdf48c8736f079d62b92b35a6497a751fcb196
 }

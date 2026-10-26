@@ -9,11 +9,6 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-<<<<<<< HEAD
-import { validate } from '@angular/forms/signals';
-=======
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
-
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -22,66 +17,46 @@ import { validate } from '@angular/forms/signals';
   styleUrl: './register.css',
 })
 export class Register {
-<<<<<<< HEAD
-  showPassword: boolean = false;
-  showConfirmPassword: boolean = false;
+  showPassword = false;
+  showConfirmPassword = false;
   registerForm = new FormGroup(
     {
-      // first name valdation ============================================
       firstName: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[a-zA-Z/s]+$/),
+        Validators.pattern(/^[a-zA-Z\s]+$/),
         Validators.minLength(3),
         Validators.maxLength(20),
       ]),
-      // last name valdation ============================================
       lastName: new FormControl('', [
         Validators.required,
-        Validators.maxLength(20),
+        Validators.pattern(/^[a-zA-Z\s]+$/),
         Validators.minLength(3),
+        Validators.maxLength(20),
       ]),
-      // email valdation ============================================
-      email: new FormControl('', [Validators.required, Validators.email]),
-      // =========================================
-      number: new FormControl('', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]),
-      // =========================================
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      // ===========================================
-      confirmPassword: new FormControl('', [Validators.required]),
-      // ++++++++++=================================
-=======
-  registerForm = new FormGroup(
-    {
-      firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       number: new FormControl('', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl('', [Validators.required]),
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
       rememberMe: new FormControl(false),
     },
     { validators: this.passwordMatchValidator },
   );
-
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password')?.value;
-    const confirmPassword = control.get('confirmPassword')?.value;
-<<<<<<< HEAD
-    // return password === confirmPassword ? null : { mismatch: true };
-    if (password != confirmPassword) {
-      control.get(`confirmPassword`)?.setErrors({ mismatch: true });
-      return { mismatch: true };
-    }else
-    {
-      return null
+    const confirmPasswordControl = control.get('confirmPassword');
+    const confirmPassword = confirmPasswordControl?.value;
+    if (!password || !confirmPassword) {
+      return null;
     }
-=======
     return password === confirmPassword ? null : { mismatch: true };
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
   }
-
-  onSubmit() {
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+  toggleConfirmPasswordVisibility(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+  onSubmit(): void {
     if (this.registerForm.valid) {
       console.log('Form Submitted', this.registerForm.value);
     } else {
