@@ -3,19 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-<<<<<<< HEAD
     "analytics": "05089ed3-a74a-4fd0-a188-44409e1bf320"
   },
   "newProjectRoot": "projects",
   "projects": {
     "nevora-frontend": {
-=======
-    "analytics": "3715624d-0d20-4308-9d3a-5ad1cf4e3428"
-  },
-  "newProjectRoot": "projects",
-  "projects": {
-    "app": {
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -72,17 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-<<<<<<< HEAD
               "buildTarget": "nevora-frontend:build:production"
             },
             "development": {
               "buildTarget": "nevora-frontend:build:development"
-=======
-              "buildTarget": "app:build:production"
-            },
-            "development": {
-              "buildTarget": "app:build:development"
->>>>>>> 0509fbb32ae286780b996381c0403fe3ce69d99d
             }
           },
           "defaultConfiguration": "development"
