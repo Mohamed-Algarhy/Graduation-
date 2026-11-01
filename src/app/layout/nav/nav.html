@@ -1,0 +1,120 @@
+<nav class="navbar">
+  <!-- Left Section -->
+  <div class="navbar-left">
+    <button class="menu-toggle" type="button" (click)="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+        ☰
+    </button>
+
+    <a routerLink="/" class="logo">
+      <img src="/images/logo without background.png" alt="Nevora Logo" />
+    </a>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="nav-links" [class.active]="isMenuOpen">
+    <a
+      routerLink="/home"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeMenu()"
+    >
+      Home
+    </a>
+
+    <a routerLink="/about-us" routerLinkActive="active" (click)="closeMenu()"> About Us </a>
+
+    <div class="dropdown">
+      <a
+        routerLink="/property"
+        class="dropdown-toggle"
+        (click)="toggleDropdown()"
+        [class.active]="isDropdownOpen"
+      >
+        <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+        Property
+    </a>
+
+      <!-- <div class="dropdown-menu" [class.show]="isDropdownOpen">
+        <a routerLink="/properties" (click)="closeMenu()"> All Properties </a>
+
+        <a routerLink="/properties/buy" (click)="closeMenu()"> Buy Property </a>
+
+        <a routerLink="/properties/rent" (click)="closeMenu()"> Rent Property </a>
+
+        <a routerLink="/properties/sell" (click)="closeMenu()"> Sell Property </a>
+      </div> -->
+    </div>
+
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()"> Contact </a>
+  </div>
+
+  <!-- Right Section -->
+  <div class="navbar-actions">
+    <button class="icon-button" type="button" aria-label="Notifications">
+      <i class="fa-regular fa-bell"></i>
+    </button>
+
+    <button class="icon-button" type="button" aria-label="Profile">
+      <i class="fa-regular fa-user"></i>
+    </button>
+
+    <a routerLink="/login" class="login-btn">Login</a>
+  </div>
+</nav>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" [class.show]="isMenuOpen" (click)="closeMenu()"></div>
+
+<!-- Sidebar Menu -->
+<aside class="sidebar" [class.open]="isMenuOpen">
+  <!-- Sidebar Header -->
+  <div class="sidebar-header">
+    <a routerLink="/" class="sidebar-logo" (click)="closeMenu()">
+      <img src="/images/logo without background.png" alt="Nevora Logo" />
+    </a>
+
+    <button class="close-sidebar" type="button" aria-label="Close menu" (click)="closeMenu()">
+      ☰
+      <i class="fa-solid fa-xmark bg-black"></i>
+    </button>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <!-- Sidebar Links -->
+  <nav class="sidebar-links">
+    <!-- <a
+      routerLink="/home"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeMenu()"
+    >
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+      <i class="fa-regular fa-building"></i>
+      <span>About Us</span>
+    </a>
+
+    <a routerLink="/properties" routerLinkActive="active" (click)="closeMenu()">
+      <i class="fa-solid fa-house-chimney"></i>
+      <span>Property</span>
+    </a>
+
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">
+      <i class="fa-regular fa-envelope"></i>
+      <span>Contact</span>
+    </a> -->
+  </nav>
+
+  <div class="sidebar-divider"></div>
+
+  <!-- Sidebar Login -->
+  <a routerLink="/login" class="sidebar-login" (click)="closeMenu()">
+    <i class="fa-regular fa-user"></i>
+    <span>Login</span>
+  </a>
+</aside>
